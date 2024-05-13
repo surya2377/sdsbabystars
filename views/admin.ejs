@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        /* Reset default margin and padding */
+        body, html, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dd, dt, img, form, fieldset, input, textarea, blockquote {
+          margin: 0;
+          padding: 0;
+        }
+
+        /* Style the delete button */
+.delete-button {
+  background-color: #ff4d4d; /* Red color */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #ff3333; /* Darker shade of red */
+}
+
+
+        /* Hero section styles */
+        .hero-section {
+          background-color: #ff7eb9; /* Pink color */
+          color: white;
+          text-align: center;
+          padding: 100px 0;
+          font-family: 'Roboto', sans-serif; /* Apply Roboto font */
+        }
+
+        /* Whole page styles */
+        body {
+          background-color: white; /* White color */
+          font-family: 'Roboto', sans-serif; /* Apply Roboto font */
+        }
+
+        /* Make the table responsive */
+        .table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 20px;
+        }
+
+        /* Style table header */
+        .table th {
+          background-color: #f2f2f2;
+          border: 1px solid #ddd;
+          padding: 8px;
+          text-align: left;
+        }
+
+        /* Style table data */
+        .table td {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+
+        /* Style alternate rows */
+        .table tbody tr:nth-child(even) {
+          background-color: #f9f9f9;
+        }
+
+        /* Style hover effect */
+        .table tbody tr:hover {
+          background-color: #e2e2e2;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section">
+        <h1>SDS Baby Stars ADMIN PANEL</h1>
+    </div>
+
+    <table class="table">
+      <thead>
+          <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Subject</th>
+              <th scope="col">Message</th>
+              <th scope="col">Action</th>
+          </tr>
+      </thead>
+      <tbody>
+          <% for (let dat of data) { %>
+              <tr>
+                  <td><%= dat.name %></td>
+                  <td><%= dat.email %></td>
+                  <td><%= dat.phone %></td>
+                  <td><%= dat.subject %></td>
+                  <td><%= dat.message %></td>
+                  <td>
+                    <form action="/delete" method="post">
+                      <input type="hidden" name="id" value="<%= dat._id %>">
+                      <button type="submit" class="delete-button">Delete</button>
+                    </form>
+                  </td>
+              </tr>
+          <% } %>
+      </tbody>
+  </table>
+  <div style="text-align: center; margin-top: 20px;">
+    <a href="/">Go back to home</a>
+  </div>
+    <script src="/stylesheets/script.js"></script>
+</body>
+</html>
