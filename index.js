@@ -25,16 +25,16 @@ const storage = multer.diskStorage({
 })
 const upload = multer({storage: storage});
 
-mongoose.connect(process.env.db_url)
-const db = mongoose.connection;
-db.on("error",console.error.bind(console,'connection error:'));
-db.once("open",()=>{
-    console.log("Database Connected");
-})
+// mongoose.connect(process.env.db_url)
+// const db = mongoose.connection;
+// db.on("error",console.error.bind(console,'connection error:'));
+// db.once("open",()=>{
+//     console.log("Database Connected");
+// })
 
-// mongoose.connect('mongodb://127.0.0.1:27017/sdsbabystars')
-//     .then(()=>console.log("Database Connected"))
-//     .catch(()=>console.log("Error occured in Database"))
+mongoose.connect('mongodb://127.0.0.1:27017/sdsbabystars')
+    .then(()=>console.log("Database Connected"))
+    .catch(()=>console.log("Error occured in Database"))
 
     app.engine('ejs',ejsMate);
     app.set('view engine','ejs');
