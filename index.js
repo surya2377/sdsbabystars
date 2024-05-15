@@ -32,9 +32,9 @@ const upload = multer({storage: storage});
 //     console.log("Database Connected");
 // })
 
-mongoose.connect('mongodb://127.0.0.1:27017/sdsbabystars')
+mongoose.connect('mongodb+srv://sdsbabystar:sdsbabystar@cluster0.egs5eae.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
     .then(()=>console.log("Database Connected"))
-    .catch(()=>console.log("Error occured in Database"))
+    .catch((err)=>console.log("Error occured in Database", err))
 
     app.engine('ejs',ejsMate);
     app.set('view engine','ejs');
@@ -98,7 +98,7 @@ app.post('/upload', upload.single('photo'), async(req,res)=>{
 app.post('/contact' ,async(req,res)=>{
     const contact = new contactModel(req.body);
     contact.save();
-    res.send('form submitted successfully');
+    res.send('form submitted successfully, we will respond you soon through email');
 })
 
 app.post('/delete', async (req, res) => {
