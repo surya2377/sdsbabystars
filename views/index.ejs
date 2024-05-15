@@ -316,14 +316,14 @@
             <form action="/contact" method="POST">
                 <h3>Queries</h3>
                 <div class="inputBox">
-                    <input type="text" name="name" id="name"  placeholder="your name">
-                    <input type="email" id="email" name="email" placeholder="your email">
+                    <input type="text" name="name" id="name"  placeholder="your name" required>
+                    <input type="email" id="email" name="email" placeholder="your email" required>
                 </div>
                 <div class="inputBox">
-                    <input type="" name="phone" id="phone" placeholder="your number">
-                    <input type="text" name="subject" id="subject" placeholder="your subject">
+                    <input type="" name="phone" id="phone" placeholder="your number" required>
+                    <input type="text" name="subject" id="subject" placeholder="your subject" required>
                 </div>
-                <textarea placeholder="your message" name="message" id="message" cols="30" rows="10"></textarea>
+                <textarea placeholder="your message" name="message" id="message" cols="30" rows="10" required></textarea>
                 <!-- <input type="submit" value="send message" class="btn"> -->
                 <button style="background-color: #e9768f; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.3s ease;">Submit</button>
             </form>
